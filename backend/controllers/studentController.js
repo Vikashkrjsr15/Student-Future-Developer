@@ -1,5 +1,5 @@
 const Student = require('../models/Student');
-const Homework = require('../../../Admin_Panel/backend/models/Homework');
+// const Homework = require('../../../Admin_Panel/backend/models/Homework');
  // Path to Admin's Homework model
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
