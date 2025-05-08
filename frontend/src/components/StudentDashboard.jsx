@@ -12,22 +12,24 @@ const StudentDashboard = () => {
     const fetchHomework = async () => {
       try {
         const token = localStorage.getItem("studentToken"); // or whatever you're storing it as
-  
-        const res = await axios.get("http://localhost:5001/api/student/homework", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-  
+
+        const res = await axios.get(
+          "https://student-future-developer.onrender.com/api/student/homework",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
         setHomeworkList(res.data);
       } catch (err) {
         console.error("Failed to fetch homework:", err.message);
       }
     };
-  
+
     fetchHomework();
   }, []);
-  
 
   const handleLogout = () => {
     localStorage.removeItem("studentToken");
@@ -53,16 +55,16 @@ const StudentDashboard = () => {
         {/* notice */}
         <div>
           <h1 className="iteam-centre">NOTICE</h1>
-            <p className="text-gray-600 mb-2">
-              Here you can find all the homework assigned to your class. Click on the download button to get the homework file.
-              </p>
-          </div>
+          <p className="text-gray-600 mb-2">
+            Here you can find all the homework assigned to your class. Click on
+            the download button to get the homework file.
+          </p>
+        </div>
 
         <div className="bg-white rounded-xl shadow-md p-6">
           <h3 className="text-xl font-semibold mb-4 text-green-700">
             Homework for Class {studentClass}
           </h3>
-
 
           {homeworkList.length === 0 ? (
             <p className="text-gray-600">No homework uploaded yet.</p>
@@ -82,7 +84,7 @@ const StudentDashboard = () => {
                     </p>
                   </div>
                   <a
-                    href={`http://localhost:5001/uploads/${hw.file}`}
+                    href={`https://student-future-developer.onrender.com/uploads/${hw.file}`}
                     download
                     className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
                   >

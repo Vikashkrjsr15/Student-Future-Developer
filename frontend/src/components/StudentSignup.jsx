@@ -22,7 +22,10 @@ const StudentSignup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5001/api/student/signup", formData);
+      const res = await axios.post(
+        "https://student-future-developer.onrender.com/api/student/signup",
+        formData
+      );
       if (res.data.success) {
         setSuccessMessage("Signup successful! Redirecting to login...");
         setTimeout(() => {
@@ -34,13 +37,18 @@ const StudentSignup = () => {
     } catch (err) {
       console.error(err);
       console.error(err.response?.data || err.message);
-      setErrorMessage(err.response?.data?.message || "Signup failed. Try again.");
+      setErrorMessage(
+        err.response?.data?.message || "Signup failed. Try again."
+      );
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 to-blue-100">
-      <form onSubmit={handleSubmit} className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md space-y-6">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md space-y-6"
+      >
         <h2 className="text-2xl font-bold text-center">Student Signup</h2>
 
         <input
@@ -96,13 +104,12 @@ const StudentSignup = () => {
         </button>
 
         {successMessage && (
-  <p className="text-sm text-center text-green-600">{successMessage}</p>
-)}
+          <p className="text-sm text-center text-green-600">{successMessage}</p>
+        )}
 
-{!successMessage && errorMessage && (
-  <p className="text-sm text-center text-red-600">{errorMessage}</p>
-)}
-
+        {!successMessage && errorMessage && (
+          <p className="text-sm text-center text-red-600">{errorMessage}</p>
+        )}
 
         <p className="text-center text-sm">
           Already have an account?{" "}

@@ -20,7 +20,10 @@ const StudentLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5001/api/student/login", formData);
+      const res = await axios.post(
+        "https://student-future-developer.onrender.com/api/student/login",
+        formData
+      );
       if (res.data.success) {
         localStorage.setItem("studentToken", res.data.token);
         localStorage.setItem("studentName", res.data.student.name);
@@ -32,7 +35,9 @@ const StudentLogin = () => {
       }
     } catch (err) {
       console.error(err.response?.data || err.message);
-      setErrorMessage(err.response?.data?.message || "Login failed. Try again.");
+      setErrorMessage(
+        err.response?.data?.message || "Login failed. Try again."
+      );
     }
   };
 
@@ -53,7 +58,7 @@ const StudentLogin = () => {
           onChange={handleChange}
           required
         />
-         <input
+        <input
           type="text"
           name="email"
           placeholder="Enter your email"
