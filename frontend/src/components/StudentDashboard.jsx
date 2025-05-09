@@ -84,7 +84,7 @@ const StudentDashboard = () => {
                     </p>
                   </div>
                   <a
-                    href={`https://student-future-developer.onrender.com/uploads/${hw.file}`}
+                    href={`https://admin-future-developer.onrender.com/uploads/${hw.file}`}
                     download
                     className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
                   >

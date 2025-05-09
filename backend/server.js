@@ -11,7 +11,7 @@ app.use(express.json());
 
 const path = require("path");
 // app.use("/uploads", express.static(path.join(__dirname, "../../Admin_Panel/backend/uploads")));
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 
 
