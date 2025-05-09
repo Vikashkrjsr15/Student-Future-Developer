@@ -10,7 +10,9 @@ app.use(express.json());
 // app.use('/uploads', express.static('../Admin_Panel/backend/uploads'));
 
 const path = require("path");
-app.use("/uploads", express.static(path.join(__dirname, "../../Admin_Panel/backend/uploads")));
+// app.use("/uploads", express.static(path.join(__dirname, "../../Admin_Panel/backend/uploads")));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
 
 
 const studentRoutes = require('./routes/studentRoutes');
